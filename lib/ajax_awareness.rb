@@ -19,7 +19,7 @@ module AjaxAwareness
       url = args.first
       url = url_for(url) if url.is_a?(Hash)
       render :update do |page|
-        page.call "ModalPopup.show", "{url:'#{url}'}"
+        page << "ModalPopup.show({url:'#{url}'});"
       end
     else
       redirect_to *args
