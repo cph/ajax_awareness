@@ -39,10 +39,11 @@ module AjaxAwareness
   def xhr_aware_render(*args)
     # puts "request.xhr?: #{request.xhr?}"
     if request.xhr?
-      # options = args.extract_options!
-      # options[:layout] = false
+      options = args.extract_options!
+      options[:layout] = false
       # todo: ?
-      render :layout => false
+      #args << {:layout => false}
+      render options
     else
       render *args
     end
