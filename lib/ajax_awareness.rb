@@ -41,9 +41,7 @@ module AjaxAwareness
     if request.xhr?
       options = args.extract_options!
       options[:layout] = false
-      # todo: ?
-      #args << {:layout => false}
-      render options
+      render options.merge(:content_type => "text/html")
     else
       render *args
     end
